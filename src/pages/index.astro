@@ -1,0 +1,96 @@
+---
+
+import Layout from '../layouts/Layout.astro';
+import Badge from '../components/Badge.astro';
+import LinkdinIcon from '../icons/Linkdin.astro';
+import SocialPill from '../components/SocialPill.astro';
+import GithubIcon from '../icons/Github.astro';
+import CorreoIcon from '../icons/Correo.astro';
+import Experience from '../components/Experience.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import Brifecase from '../icons/Brifecase.astro';
+import CodeIcon from '../icons/Code.astro';
+import Projects from '../components/Projects.astro';
+import SobreMi from '../components/SobreMi.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title="Hey, soy Fernando Estela" description="Desarrollador web frontend con enfoque moderno en React, Astro y Tailwind.">
+	<main>
+		<SectionContainer class="py-30 lg:py-40 pb-10 ">
+			<div class="flex items-center gap-4">
+				<img 
+					src="https://i.imgur.com/VGLYihS.png" 
+					alt="foto_ferchas"
+					class="rounded-full size-12 mb-3"
+				/>
+				<Badge>Disponible para trabajar</Badge>
+			</div>
+
+			<h1 id="saludo" class="text-white text-5xl font-bold flex flex-wrap items-center gap-4 pb-6 lg:pb-10">
+				Hey, soy Fernando 
+				<a 
+					href="https://www.linkedin.com/in/luis-fernando-estela-crisolo-642100295/"
+					target="_blank" 
+					rel="noopener noreferrer"
+					aria-label="Ir al perfil de LinkedIn de Fernando"
+					class="flex justify-center items-center"
+				>
+				</a>
+			</h1>
+
+			<h2 class="text-xl lg:text-2xl text-wrap max-w-[500px]"> 
+				<span class="text-yellow-200/90">
+					Desarrollador web frontend
+				</span>
+				<span class="text-red-200/90">
+					de Huánuco, Perú.
+				</span>
+				<span class="opacity-85">
+					Apasionado por crear interfaces modernas, rápidas y accesibles usando tecnologías como React, Astro y Tailwind.
+				</span>
+			</h2>
+
+			<nav class="flex gap-4 mt-8 flex-wrap">
+				<SocialPill href="https://www.linkedin.com/in/luis-fernando-estela-crisolo-642100295/">
+					<LinkdinIcon class="size-4 md:size-6" />
+					Linkedin
+				</SocialPill>
+				<SocialPill href="https://github.com/FerLU82002">
+					<GithubIcon class="size-4 md:size-6" />
+					Github
+				</SocialPill>
+				<SocialPill href="mailto:fernandoc66llf@gmail.com">
+					<CorreoIcon class="size-4 md:size-6"/>
+					Correo
+				</SocialPill>
+			</nav>	
+		</SectionContainer>
+
+		<SectionContainer id="experiencie">
+			<h2 class="text-2xl font-semibold mb-7 pt-12 flex gap-x-2 items-center">
+				<Brifecase class="size-7"/>
+				Experiencia laboral
+			</h2>
+			<Experience />
+		</SectionContainer>
+
+		<SectionContainer id="projects">
+			<h2 class="text-2xl font-semibold mb-7 pt-12 flex gap-x-2 items-center">
+				<CodeIcon class="size-7"/>
+				Proyectos realizados
+			</h2>
+			<Projects />
+		</SectionContainer>
+		
+		<SectionContainer id="sobreMi" >
+			<h2 class="text-2xl font-semibold mb-7 flex gap-x-2 items-center">
+				<CodeIcon class="size-7"/>
+				Sobre mí 
+			</h2>
+			<SobreMi />
+		</SectionContainer>
+	</main>
+</Layout>

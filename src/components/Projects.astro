@@ -1,0 +1,96 @@
+---
+import IconNextJS from "../icons/NextJS.astro";
+import IconTailwind from "../icons/Tailwind.astro";
+import GithubIcon from "../icons/Github.astro";
+import PreviewIcon from "../icons/Preview.astro"; // crea uno simple o reemplaza por SVG inline
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: IconNextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-white text-blue-600",
+    icon: IconTailwind,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "GuitarLA",
+    description:
+      "E-commerce especializado en la venta de guitarras, desarrollado con Astro y React. Cuenta con una interfaz moderna.",
+    url: "https://guitar-la-vue.netlify.app/",
+    github: "https://github.com/FerLU82002/guitarLA",
+    image: "/projects/Guitarla.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "GuitarLA V2",
+    description:
+      "Versión mejorada del mismo e-commerce, con enfoque en performance, accesibilidad y mejor experiencia visual.",
+    url: "https://guitar-la-vue.netlify.app/",
+    github: "https://github.com/FerLU82002/guitarLA",
+    image: "/projects/Guitarla.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+];
+---
+{
+  PROJECTS.map(({ title, description, tags, image, url, github }) => (
+    <article class="flex flex-col md:flex-row gap-6 my-10 p-6 bg-neutral-900/70 border border-white/10 rounded-2xl shadow-xl transition-all duration-300 group hover:shadow-2xl hover:bg-neutral-800/80">
+      
+      <div class="md:w-1/2 overflow-hidden rounded-2xl">
+        <img
+          src={image}
+          alt={`Captura de pantalla del proyecto ${title}`}
+          class="w-full h-60 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+      </div>
+      
+      <div class="md:w-1/2 flex flex-col justify-between">
+        <div>
+          <h3 class="text-3xl font-extrabold text-yellow-400 mb-4">{title}</h3>
+
+          <div class="mb-4 flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <span class={`inline-flex items-center gap-2 text-xs font-medium rounded-full ${tag.class} px-3 py-1 shadow-sm`}>
+                <tag.icon class="w-4 h-4" />
+                {tag.name}
+              </span>
+            ))}
+          </div>
+
+          <p class="text-base text-white/90 leading-relaxed">{description}</p>
+        </div>
+        
+        <div class="mt-6 flex gap-4 flex-wrap">
+          <a
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+            role="button"
+            class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-full hover:bg-gray-700 transition"
+          >
+            <GithubIcon class="size-4 md:size-5" />
+            GitHub
+          </a>
+
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            role="button"
+            class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-full hover:bg-blue-500 transition"
+          >
+            <PreviewIcon class="size-4" />
+            Preview
+          </a>
+        </div>
+      </div>
+    </article>
+  ))
+}

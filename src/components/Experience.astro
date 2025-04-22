@@ -1,0 +1,30 @@
+---
+import type { ACTION_ERROR_CODES } from "astro:actions"
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCIE = [ 
+    {
+        Date: "Enero 2024",
+        Title: "Desarrollo de interfaz con Tailwind CSS",
+        Description: "Construcción de componentes reutilizables y diseño de dashboards modernos utilizando Tailwind CSS en proyectos personales y prácticas.",
+        Link: "#",
+    },
+    {
+        Date: "Febrero 2024",
+        Title: "Diseño de interfaces en Figma",
+        Description: "Diseño de interfaces de usuario para landing pages y portafolios, manteniendo consistencia entre diseño y desarrollo.",
+    },
+  
+];
+
+---
+
+<ol class="relative border-s border-gray-200 ml-4">       
+    {
+        EXPERIENCIE.map(experiencie => (
+                 <li class="mb-10 ms-4">
+                    <ExperienceItem {...experiencie}/>
+                 </li>
+        ))
+    }
+</ol>
